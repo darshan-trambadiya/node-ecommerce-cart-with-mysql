@@ -101,7 +101,7 @@ Contributions are welcome! Feel free to submit a pull request.
 
 If you have any questions or suggestions, feel free to reach out:
 
-- GitHub: [Your GitHub Profile](https://github.com/darshan-trambadiya)
+- GitHub: [Checkout GitHub Profile](https://github.com/darshan-trambadiya)
 - Email: trambadiyadarshan5@gmail.com
 
 💙 Happy Coding! 🚀
