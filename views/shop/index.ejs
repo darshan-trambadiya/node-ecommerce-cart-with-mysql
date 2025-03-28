@@ -1,0 +1,142 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/product.css">
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+
+            <main>
+                <div>
+                    <h2>🚀 Welcome to the Ultimate Node.js Shopping Cart App! 🛒</h2>
+
+                    <p>Experience seamless online shopping with this feature-rich, user-friendly shopping cart
+                        application built with Node.js, Express, and Sequelize. Whether you're an admin managing
+                        products or a user exploring the store, this app has everything you need for a smooth e-commerce
+                        experience.
+                    </p>
+
+                    <div>
+                        <h3>Key Features for Admins:</h3>
+                        <ul>
+                            <li>
+                                🛠️ Add Products: Admins can effortlessly add new products with details like name,
+                                description, price, and image URL.
+                            </li>
+                            <li>
+                                ✏️ Edit Products: Made a mistake? No problem! Admins can easily update product details
+                                anytime.
+                            </li>
+                            <li>
+                                🗑️ Delete Products: Remove outdated or unwanted products with just a click.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3>Key Features for Users:</h3>
+                        <ul>
+                            <li>
+                                🛍️ Browse Products: Explore a beautifully designed product listing page with all
+                                available items.
+                            </li>
+                            <li>
+                                🛒 Add to Cart: Found something you love? Click the "Add to Cart" button to save it for
+                                later.
+                            </li>
+                            <li>
+                                📦 Manage Cart: View your cart, remove items before checkout.
+                            </li>
+                            <li>
+                                💳 Place Orders: Ready to buy? Convert your cart into an order with just a few clicks!
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3>Technologies Used:</h3>
+                        <ul>
+                            <li>🛠️ Backend:</li>
+                            <ul>
+                                <li>
+                                    <strong>Express.js</strong>: Fast and minimalist web framework for Node.js.
+                                </li>
+                                <li>
+                                    <strong>Sequelize</strong>: Powerful ORM for managing MySQL database interactions.
+                                </li>
+                                <li>
+                                    <strong>MySQL2</strong>: High-performance MySQL client for Node.js.
+                                </li>
+                                <li>
+                                    <strong>Body-parser</strong>: Middleware for parsing incoming request bodies.
+                                </li>
+                            </ul>
+                            <li>🎨 Frontend:</li>
+                            <ul>
+                                <li>
+                                    <strong>EJS</strong>: Embedded JavaScript templating for dynamic HTML rendering.
+                                </li>
+                            </ul>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3>Why Choose This App?</h3>
+                        <ul>
+                            <li>
+                                ✅ Admin Control: Full control over product management for admins.
+                            </li>
+                            <li>
+                                ✅ User-Friendly Interface: Intuitive design for a seamless shopping experience.
+                            </li>
+                            <li>
+                                ✅ Scalable & Secure: Built with modern technologies to ensure scalability and security.
+                            </li>
+                            <li>
+                                ✅ Responsive Design: Works flawlessly on all devices, from desktops to mobiles.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <p>
+                        Whether you're building an online store or learning full-stack development, this Node.js
+                        shopping
+                        cart app is the perfect solution! 🌟
+                    </p>
+                </div>
+                <hr class="divider">
+                <div>
+                    <% if (prods.length> 0) { %>
+                        <h2 class="centered">
+                            Products
+                        </h2>
+                        <div class="grid">
+                            <% for (let product of prods) { %>
+                                <article class="card product-item">
+                                    <header class="card__header">
+                                        <h1 class="product__title">
+                                            <%= product.title %>
+                                        </h1>
+                                    </header>
+                                    <div class="card__image">
+                                        <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
+                                    </div>
+                                    <div class="card__content">
+                                        <h2 class="product__price">$<%= product.price %>
+                                        </h2>
+                                        <p class="product__description">
+                                            <%= product.description %>
+                                        </p>
+                                    </div>
+                                    <div class="card__actions">
+                                        <a href="/products/<%= product.id %>" class="btn">Details</a>
+                                        <%- include('../includes/add-to-cart.ejs', {product: product}) %>
+                                    </div>
+                                </article>
+                                <% } %>
+                        </div>
+                        <% } else { %>
+                            <%- include('../includes/no-data.ejs') %>
+                                <% } %>
+                </div>
+            </main>
+            <%- include('../includes/end.ejs') %>
